@@ -9,7 +9,7 @@ const errCatcher = (msg, status) => {
   return err;
 };
 
-const serverErr = (err, req, res, next) => {
+const errHandler = (err, req, res, next) => {
   res.status(err.status || 500).json({
     error_det: {
       errTitle: 'something whent wrong',
@@ -22,5 +22,5 @@ const serverErr = (err, req, res, next) => {
 module.exports = {
   e404,
   errCatcher,
-  serverErr,
+  errHandler,
 };
