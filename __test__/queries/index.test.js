@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const connection = require('../../src/database/config/connection');
-const runBuild = require('../../src/database/config/build.js');
+const { runBuild } = require('../../src/database/config/build.js');
 
 beforeEach(() => runBuild());
 
@@ -12,4 +12,4 @@ describe('Testing search', () => {
   });
 });
 
-afterAll(() => connection());
+afterAll(() => connection.end());
