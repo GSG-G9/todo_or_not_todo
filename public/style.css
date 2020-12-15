@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Ubuntu-Regular;
+}
+
+body {
+  background-color: #74c35b;
+  color: #999;
+}
+
+#signupContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  height: 400px;
+  background-color: white;
+}
+#signupForm {
+  width: 310px;
+  margin: auto;
+  padding-top: 35px;
+}
+#signupForm input {
+  padding: 10px;
+  margin-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #999;
+  outline: none;
+}
+#signupForm input[type="submit"] {
+  border-bottom: none;
+  cursor: pointer;
+  background-color: #00b241;
+  color: white;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+#signupForm div {
+  position: relative;
+}
+#signupForm div label {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+#signupForm input:focus ~ label,
+#signupForm input:valid ~ label {
+  top: -13px;
+  color: #00b241;
+  font-size: 14.5px;
+  font-weight: bold;
+}
+#signupForm div input:focus,
+#signupForm div input:valid {
+  border-bottom: 2.5px solid rgb(11, 133, 11);
+}
