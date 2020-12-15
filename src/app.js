@@ -1,5 +1,6 @@
 const express = require('express');
 const { join } = require('path');
+const cookiePerser = require('cookie-parser')
 const rauter = require('./router');
 const { e404, serverErr } = require('./controllers/err');
 
@@ -9,6 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(join(__dirname, '..', 'public')));
+app.use(cookiePerser);
 // app.use(rauter);
 
 app.use(e404);
