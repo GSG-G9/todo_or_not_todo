@@ -2,18 +2,12 @@ const e404 = (req, res) => {
   res.send('<h1>404 sorry ,what you\'re looking for isn\'t here </h1>');
 };
 
-const errCatcher = (msg, status) => {
-  const err = new Error();
-  err.msg = msg;
-  err.status = status;
-  return err;
-};
-
+// eslint-disable-next-line no-unused-vars
 const errHandler = (err, req, res, next) => {
   res.status(err.status || 500).json({
     error_det: {
       errTitle: 'something whent wrong',
-      errStatus: err.status,
+      errStatus: err.status || 500,
       errMasseage: err.msg || err.masseage,
     },
   });
@@ -21,6 +15,5 @@ const errHandler = (err, req, res, next) => {
 
 module.exports = {
   e404,
-  errCatcher,
   errHandler,
 };
