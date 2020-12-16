@@ -13,6 +13,6 @@ signupForm.addEventListener("submit", (e) => {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ userName, email, password, confirmPassword }),
+    body: JSON.stringify({ userName, email, password, confirmPassword })
   });
 });
