@@ -1,0 +1,246 @@
+p {
+    margin: 0;
+}
+
+.hero-section {
+    background: url('images/tile_background.png');
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+}
+
+.todo-app {
+    width: 350px;
+    min-height: 500px;
+    /* border-radius: 15px; */
+    background-color: #f5f5f5;
+    -webkit-box-shadow: 0px 10px 13px -7px #00000077, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: 0px 10px 13px -7px #00000077, 5px 5px 15px 5px rgba(0,0,0,0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-image: url('images/header_background.png');
+    background-size: 600px;
+    border-bottom-right-radius: 30px;
+    padding-bottom: 30px;
+}
+
+.top-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 30px;
+    /* padding-right: 10px; */
+    padding-top: 5px;
+    width: 100%;
+}
+
+.top-header a .fa-sign-out-alt {
+    text-decoration: none;
+    color: inherit;
+    font-size: 22px;
+}
+
+.top-header a {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    line-height: 40px;
+    /* box-shadow: 0 2px 5px 0 #75757541; */
+    text-align: center;
+    color: #f5f5f5;
+    transition: all 0.25s;
+}
+
+.top-header a:hover {
+    color: crimson;
+    background-color: #f5f5f5;
+    transition: all 0.25s;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    background-image: linear-gradient(90deg, #f5f5f594, #f5f5f500);
+    padding-right: 50px;
+}
+
+.user-info .user-avatar {
+    width: 40;
+    height: 50px;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.user-info .user-avatar img {
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
+}
+
+.user-data {
+    padding-left: 10px;
+}
+
+.user-data .username {
+    padding-bottom: 5px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.user-data .todos-info {
+    font-size: 12px;
+    color: #353535;
+}
+
+.user-data .todos-info .todos-number {
+    font-size: 12px;
+    color: #46f900;
+    font-weight: 700;
+}
+
+.task-list {
+    width: 100%;
+    min-height: 60px;
+    max-height: 300px;
+    display: flex;
+    justify-content: start;
+    align-self: center;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.task-list::-webkit-scrollbar {
+    display: none;
+}
+
+.task-item {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid #757575;
+}
+
+.task-item  .task-content {
+    width: 100%;
+    min-height: 60px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.task-item  .task-content input[type='text'] {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 18px;
+    color: #555555;
+    padding: 5px 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.edit-case {
+    border: 1px solid #00c952 !important;
+}
+
+.edit-task i {
+    color: #555555;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.edit-task i:hover {
+    color: #0192d5;
+    transition: all 0.25s;
+}
+
+.createdat {
+    width: 100%;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 12px;
+}
+
+.new-task {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #d6307b;
+}
+
+.new-task input[type="text"] {
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    /* border-radius: 3px; */
+    width: 85%;
+    outline: none;
+}
+
+.new-task button {
+    width: 45px;
+    height: 30px;
+    border: none;
+    /* border-radius: 50%; */
+    outline: none;
+    background-color: #00c952;
+    text-align: center;
+    line-height: 27px;
+    font-size: 22px;
+    color: white;
+    transition: all 0.25s;
+    cursor: pointer;
+}
+
+.new-task button.fas {
+    font-weight: 400;
+}
+
+.new-task button:hover {
+    background-color: white;
+    color: #00c952;
+    transition: all 0.25s;
+}
+
+.line-through {
+    text-decoration: line-through;
+    color: #959595;
+}
+
+.hidden {
+    display: none;
+}
+
+.block {
+    display: block;
+}
