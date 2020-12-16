@@ -2,6 +2,7 @@ const e404 = (req, res) => {
   res.send('<h1>404 sorry ,what you\'re looking for isn\'t here </h1>');
 };
 
+// eslint-disable-next-line no-unused-vars
 const errHandler = (err, req, res, next) => {
   res.status(err.status || 500).json({
     error_det: {

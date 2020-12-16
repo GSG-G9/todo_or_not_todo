@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(join(__dirname, '..', 'public')));
 app.use(cookiePerser);
-// app.use(router);
+app.use(router);
 
 app.use(e404);
 app.use(errHandler);
