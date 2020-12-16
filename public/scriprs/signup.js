@@ -7,12 +7,15 @@ signupForm.addEventListener("submit", (e) => {
   const password = e.target.elements[2].value;
   const confirmPassword = e.target.elements[3].value;
 
-  fetch("/signup", {
-    method: "POST",
+  fetch('/signup', {
+    method: 'POST',
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ userName, email, password, confirmPassword })
-  });
+    body: JSON.stringify({
+      username, email, password, confirmPassword,
+    }),
+  })
+    .then((response) => response.json());
 });

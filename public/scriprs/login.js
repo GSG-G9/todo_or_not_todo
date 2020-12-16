@@ -1,6 +1,5 @@
 const username = document.querySelector('#usernameLogin');
 const password = document.querySelector('#passwordLogin');
-const login = document.querySelector('#submitLogin');
 const form = document.querySelector('#formLogin');
 const error = document.querySelector('#errorLogin');
 
@@ -30,6 +29,7 @@ form.addEventListener('submit', (e) => {
       }),
     })
       .then((response) => response.json())
+      // eslint-disable-next-line no-console
       .catch((err) => console.log(err));
   }
 });
