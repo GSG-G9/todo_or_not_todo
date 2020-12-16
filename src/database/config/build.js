@@ -1,6 +1,5 @@
 const { readFileSync } = require('fs');
 const { join } = require('path');
-require('env2')('./config.env');
 
 const connection = require('./connection');
 

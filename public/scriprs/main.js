@@ -114,18 +114,20 @@ renderTodoList(fakeData);
 //   }).catch((err) => console.log(err));
 // });
 
-addTodo.addEventListener('click', () => {
-  const textTodo = document.querySelector('.new-todo-text').value;
-  addNewTask();
-})
 const addNewTask = (todoText) => {
   fetch('/todos', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(todoText),
+    body: JSON.stringify({ todoText }),
   })
     .then((res) => res.json())
     .catch((err) => console.log(err));
 };
+
+addTodo.addEventListener('click', () => {
+  const textTodo = document.querySelector('.new-todo-text');
+  console.log(textTodo.value);
+  addNewTask(textTodo.value);
+});
