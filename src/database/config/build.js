@@ -11,7 +11,7 @@ const runBuild = () => {
     const fakeData = readFileSync(join(__dirname, 'fakeData.sql')).toString();
     sql += fakeData;
   }
-  connection.query(sql);
+  return connection.query(sql);
 };
 
 module.exports = { runBuild };

@@ -14,7 +14,7 @@ beforeAll(() => runBuild());
 // }));
 
 test('Testing get specific todo', () => getSpecificTodo(1).then(({ rows }) => {
-  console.log(rows);
+  // console.log(rows);
   expect(rows.length).toBe(2);
 }));
 
