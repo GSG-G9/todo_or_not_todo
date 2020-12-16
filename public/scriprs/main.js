@@ -1,4 +1,5 @@
 const todoList = document.querySelector('.task-list');
+const addTodo = document.querySelector('.add-todo');
 
 const fakeData = [
   {
@@ -7,13 +8,15 @@ const fakeData = [
     todo_content: 'New Task',
     completed: true,
     createdAt: '12-12-2020',
-  }, {
+  },
+  {
     id: 2,
     user_id: 1,
     todo_content: 'New Task',
     completed: false,
     createdAt: '12-16-2020',
-  }, {
+  },
+  {
     id: 2,
     user_id: 2,
     todo_content: 'New Task',
@@ -33,7 +36,9 @@ const renderTodoItem = (todo) => {
   const checkInput = document.createElement('input');
   checkInput.setAttribute('type', 'checkbox');
   checkInput.setAttribute('name', 'check-complete');
-  checkInput.setAttribute('checked', todo.completed);
+  todo.completed
+    ? checkInput.setAttribute('checked', 'true')
+    : checkInput.removeAttribute('checked');
 
   const taskInput = document.createElement('input');
   taskInput.setAttribute('type', 'text');
@@ -47,9 +52,8 @@ const renderTodoItem = (todo) => {
   const editIcon = document.createElement('i');
   editIcon.setAttribute('class', 'fas fa-edit');
 
-  
   editTask.append(editIcon);
-  
+
   const saveChangeElement = document.createElement('span');
   saveChangeElement.setAttribute('class', 'edit-task hidden');
   const saveIcon = document.createElement('i');
@@ -73,7 +77,7 @@ const renderTodoItem = (todo) => {
     editTask.classList.remove('hidden');
   });
 
-  if (checkInput.checked === true) {
+  if (checkInput.hasAttribute('checked')) {
     taskInput.classList.add('line-through');
   }
 
@@ -109,3 +113,19 @@ renderTodoList(fakeData);
 //     renderTodoList(data);
 //   }).catch((err) => console.log(err));
 // });
+
+addTodo.addEventListener('click', () => {
+  document.querySelector('')
+  addNewTask();
+})
+const addNewTask = (todoText) => {
+  fetch('/todos', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(todoText),
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+};
