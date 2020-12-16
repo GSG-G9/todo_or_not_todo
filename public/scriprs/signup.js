@@ -1,9 +1,8 @@
-const signupForm = document.querySelector('#signupForm');
+const signupForm = document.querySelector("#signupForm");
 
-signupForm.addEventListener('submit', (e) => {
+signupForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log('event', e.target.elements[0].value);
-  const username = e.target.elements[0].value;
+  const userName = e.target.elements[0].value;
   const email = e.target.elements[1].value;
   const password = e.target.elements[2].value;
   const confirmPassword = e.target.elements[3].value;
