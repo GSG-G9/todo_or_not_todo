@@ -81,8 +81,12 @@
   color: #6fb554;
   font-weight: bold;
 }
+#errorLogin{
+  color :#f00;
+  font-size: 1.5em;
+}
 /* End Login page */
-
+/* start of signup page */
 
 #signupContainer {
   position: absolute;
@@ -102,17 +106,16 @@
   padding: 10px;
   margin-bottom: 30px;
   width: 100%;
-  box-sizing: border-box;
   border: none;
   border-bottom: 2px solid #999;
   outline: none;
+  text-transform: capitalize;
 }
 #signupForm input[type="submit"] {
   border-bottom: none;
   cursor: pointer;
-  background-color: #00b241;
+  background-color: #6fb554;
   color: white;
-  text-transform: uppercase;
   font-size: 17px;
 }
 #signupForm div {
@@ -128,16 +131,14 @@
 #signupForm input:focus ~ label,
 #signupForm input:valid ~ label {
   top: -13px;
-  color: #00b241;
+  color: #6fb554;
   font-size: 14.5px;
   font-weight: bold;
 }
 #signupForm div input:focus,
 #signupForm div input:valid {
-  border-bottom: 2.5px solid rgb(11, 133, 11);
+  border-bottom: 3px solid #6fb554;
 }
+/* end of signup page */
 
-#errorLogin{
-    color :#f00;
-    font-size: 1.5em;
-}
+
