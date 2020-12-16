@@ -6,7 +6,7 @@ const {
 } = require('../../src/database/queries/getData');
 const { addUser, addTodo } = require('../../src/database/queries/addData');
 
-// beforeEach(() => runBuild());
+beforeAll(() => runBuild());
 
 // test('Testing get all todo', () => getAllTodos().then(({ rows }) => {
 //   console.log(rows);

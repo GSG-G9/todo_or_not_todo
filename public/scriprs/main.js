@@ -115,7 +115,7 @@ renderTodoList(fakeData);
 // });
 
 addTodo.addEventListener('click', () => {
-  document.querySelector('')
+  const textTodo = document.querySelector('.new-todo-text').value;
   addNewTask();
 })
 const addNewTask = (todoText) => {
