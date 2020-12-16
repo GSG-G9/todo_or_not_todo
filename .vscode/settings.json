@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "editor.quickSuggestions": null,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
@@ -7,4 +8,11 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
+=======
+	"editor.formatOnSave": false,
+	"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+>>>>>>> 7c3abeff19f9d565cd870e0a711be4ed262d5e07
 }

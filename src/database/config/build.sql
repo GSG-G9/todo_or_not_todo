@@ -11,8 +11,8 @@ CREATE TABLE users (
 
 CREATE TABLE todos (
     id SERIAL PRIMARY KEY,
-    users_id INTEGER REFERENCES users(id),
-    todo_content TEXT,
+    user_id INTEGER REFERENCES users(id),
+    todo_content TEXT NOT NULL,
     completed BOOLEAN DEFAULT false,
     createdAt TIMESTAMP NOT NULL
 );
