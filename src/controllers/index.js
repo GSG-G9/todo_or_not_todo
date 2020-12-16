@@ -1,9 +1,8 @@
+const { addTodo } = require('./addTodo');
+const {checkUserName} = require('./checkUserName')
+const { validateLogin} = require('./validateLogin')
+const { Login} = require('./loginUser')
 
-const router = require('express').Router()
 
-router.post('/login', (req, res, next) => {
-  // const { username, password} = req.body;
-    
 
-});
-
+module.exports = { addTodo, checkUserName, validateLogin, Login };
