@@ -4,12 +4,85 @@
   padding: 0;
   font-family: Ubuntu-Regular;
 }
-
-body {
-  background-color: #80d168;
-  color: #999;
-  text-transform: capitalize;
+body#signup {
+    background-color: #74c35b;
+    color: #999;
+  }
+  
+/* start login Page  */
+#containerLogin {
+  margin: -11em auto;
+  width: 20em;
+  height: 21.5em;
+  border: 1px solid #fff;
+  border-radius: 0 50px;
+  box-shadow: -5px -5px 8px #a6a9b6, 5px 5px 8px #a6a9b6;
+  text-align: center;
 }
+#formLogin {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+h3#title {
+  height: 3em;
+  color: #fff;
+  text-align: center;
+  background-color: #6fb554;
+  padding: 1em;
+  border-top: 1px solid #6fb554;
+  border-top-right-radius: 50px;
+}
+.inputLogin {
+  outline: none;
+  border: none;
+  background: 0 0;
+  font-size: 1.2rem;
+  color: #555;
+  padding: 5px;
+  border-bottom: 2px solid #a6a9b6;
+  line-height: 2;
+}
+
+#submitLogin {
+  margin-top: 40px;
+  font-size: 1.4rem;
+  padding: 6px;
+  width: 100px;
+  outline: 0;
+  border: 1px solid #6fb554;
+  border-radius: 10px;
+  background-color: #6fb554;
+  color: #fff;
+}
+.fa-user,
+.fa-lock {
+  color: #6fb554;
+  align-self: center;
+  font-size: 1.2rem;
+}
+#signupLogin {
+  color: #555;
+}
+#linkSignupLogin {
+  text-decoration: none;
+  border: 2px solid #6fb554;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #555;
+  font-size: 1.2em;
+}
+#linkSignupLogin:hover {
+  color: #6fb554;
+  font-weight: bold;
+}
+/* End Login page */
+/* start of signup page */
 
 #signupContainer {
   position: absolute;
@@ -62,3 +135,4 @@ body {
 #signupForm div input:valid {
   border-bottom: 3px solid #6fb554;
 }
+/* end of signup page */

@@ -1,5 +1,3 @@
-
-
 describe('Testing search', () => {
   test('Should return 4', () => {
     const actual = 4;
