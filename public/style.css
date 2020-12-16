@@ -4,7 +4,7 @@
   padding: 0;
   font-family: Ubuntu-Regular;
 }
-body#signup {
+#signup {
     background-color: #74c35b;
     color: #999;
   }
@@ -28,7 +28,7 @@ body#signup {
   align-content: center;
 }
 
-h3#title {
+#title {
   height: 3em;
   color: #fff;
   text-align: center;
@@ -80,6 +80,10 @@ h3#title {
 #linkSignupLogin:hover {
   color: #6fb554;
   font-weight: bold;
+}
+#errorLogin{
+  color :#f00;
+  font-size: 1.5em;
 }
 /* End Login page */
 /* start of signup page */
@@ -136,3 +140,5 @@ h3#title {
   border-bottom: 3px solid #6fb554;
 }
 /* end of signup page */
+
+
