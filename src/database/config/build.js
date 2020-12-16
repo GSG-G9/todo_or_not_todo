@@ -14,6 +14,4 @@ const runBuild = () => {
   connection.query(sql);
 };
 
-runBuild();
-
 module.exports = { runBuild };
