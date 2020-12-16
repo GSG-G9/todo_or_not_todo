@@ -1,3 +1,3 @@
-const { addTodo } = require('./addTodo');
+const { addNewTodo } = require('./todo');
 
-module.exports = { addTodo };
+module.exports = { addNewTodo };

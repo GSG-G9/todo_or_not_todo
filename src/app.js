@@ -3,7 +3,7 @@ require('env2')('./config.env');
 const { join } = require('path');
 
 const express = require('express');
-const cookiePerser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 
 const router = require('./router');
 const { e404, errHandler } = require('./controllers/err');
@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(join(__dirname, '..', 'public')));
-app.use(cookiePerser);
+app.use(cookieParser());
 app.use(router);
 
 app.use(e404);

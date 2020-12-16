@@ -60,13 +60,18 @@ const renderTodoItem = (todo) => {
   saveIcon.setAttribute('class', 'fas fa-check');
   saveChangeElement.append(saveIcon);
 
-  editIcon.addEventListener('click', (e) => {
+  editIcon.addEventListener('click', () => {
     taskInput.readOnly = false;
     taskInput.focus();
     taskInput.classList.add('edit-case');
     saveChangeElement.classList.remove('hidden');
     saveChangeElement.classList.add('block');
     editTask.classList.add('hidden');
+    if (todo.completed) {
+      taskInput.classList.add('line-through');
+    } else {
+      taskInput.classList.remove('line-through');
+    }
   });
 
   saveChangeElement.addEventListener('click', (e) => {
@@ -75,6 +80,11 @@ const renderTodoItem = (todo) => {
     saveChangeElement.classList.add('hidden');
     saveChangeElement.classList.remove('block');
     editTask.classList.remove('hidden');
+    if (todo.completed) {
+      taskInput.classList.add('line-through');
+    } else {
+      taskInput.classList.remove('line-through');
+    }
   });
 
   if (checkInput.hasAttribute('checked')) {
@@ -99,6 +109,7 @@ const renderTodoList = (todos) => {
   while (todoList.hasChildNodes()) {
     todoList.removeChild(todoList.lastChild);
   }
+  console.log(todos);
   todos.forEach((todo) => {
     const todoItem = renderTodoItem(todo);
     console.log(todoItem);
@@ -106,13 +117,16 @@ const renderTodoList = (todos) => {
   });
 };
 
-renderTodoList(fakeData);
+// renderTodoList(fakeData);
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   fetch('/todos').then((res) => res.json()).then((data) => {
-//     renderTodoList(data);
-//   }).catch((err) => console.log(err));
-// });
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('/todos')
+    // .then((res) => res.json())
+    .then((data) => {
+      renderTodoList(data);
+    })
+    .catch((err) => console.log(err));
+});
 
 const addNewTask = (todoText) => {
   fetch('/todos', {
