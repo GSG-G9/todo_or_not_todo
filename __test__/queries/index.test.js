@@ -1,4 +1,8 @@
+/* eslint-disable no-undef */
+const connection = require('../../src/database/config/connection');
+const { runBuild } = require('../../src/database/config/build.js');
 
+beforeEach(() => runBuild());
 
 describe('Testing search', () => {
   test('Should return 4', () => {
@@ -7,3 +11,5 @@ describe('Testing search', () => {
     expect(actual).toEqual(expected);
   });
 });
+
+afterAll(() => connection.end());
