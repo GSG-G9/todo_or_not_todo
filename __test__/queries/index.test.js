@@ -6,16 +6,16 @@ const {
 } = require('../../src/database/queries/getData');
 const { addUser, addTodo } = require('../../src/database/queries/addData');
 
-beforeEach(() => runBuild());
+// beforeEach(() => runBuild());
 
 // test('Testing get all todo', () => getAllTodos().then(({ rows }) => {
 //   console.log(rows);
 //   expect(rows[0].todo_content).toEqual('make coffee');
 // }));
 
-test('Testing specific all todo', () => getSpecificTodo(1).then(({ rows }) => {
+test('Testing get specific todo', () => getSpecificTodo(1).then(({ rows }) => {
   console.log(rows);
-  expect(rows.length).toEqual(2);
+  expect(rows.length).toBe(2);
 }));
 
 afterAll(() => connection.end());
