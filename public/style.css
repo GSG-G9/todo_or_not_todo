@@ -4,7 +4,7 @@
   padding: 0;
   font-family: Ubuntu-Regular;
 }
-body#signup {
+#signup {
     background-color: #74c35b;
     color: #999;
   }
@@ -28,7 +28,7 @@ body#signup {
   align-content: center;
 }
 
-h3#title {
+#title {
   height: 3em;
   color: #fff;
   text-align: center;
@@ -135,4 +135,9 @@ h3#title {
 #signupForm div input:focus,
 #signupForm div input:valid {
   border-bottom: 2.5px solid rgb(11, 133, 11);
+}
+
+#errorLogin{
+    color :#f00;
+    font-size: 1.5em;
 }
