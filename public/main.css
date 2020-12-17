@@ -125,7 +125,7 @@ p {
 .task-list {
     width: 100%;
     min-height: 60px;
-    max-height: 300px;
+    max-height: 330px;
     display: flex;
     justify-content: start;
     align-self: center;
@@ -179,6 +179,18 @@ p {
 
 .edit-task i:hover {
     color: #0192d5;
+    transition: all 0.25s;
+}
+
+.remove-task .fa-times {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 18px;
+    transition: all 0.25s;
+}
+
+.remove-task .fa-times:hover {
+    color: crimson;
     transition: all 0.25s;
 }
 

@@ -4,6 +4,7 @@ const e404 = (req, res) => {
 
 // eslint-disable-next-line no-unused-vars
 const errHandler = (err, req, res, next) => {
+  console.log(err);
   res.status(err.status || 500).json({
     error_det: {
       errTitle: 'something whent wrong',
