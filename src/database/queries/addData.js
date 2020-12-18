@@ -13,10 +13,11 @@ const addUser = ({ username, email, password }) => {
 const addTodo = ({ userId, todoContent }) => {
   const sql = {
     text:
-      'INSERT INTO todos (users_id, todo_content, completed, createdAt) VALUES ($1, $2, false, CURRENT_TIMESTAMP) RETURNING *;',
+      'INSERT INTO todos (user_id, todo_content, createdAt) VALUES ($1, $2, CURRENT_TIMESTAMP) RETURNING *;',
     values: [userId, todoContent],
   };
 
   return connection.query(sql);
 };
-module.exports = { addUser, addTodo };
+
+module.exports = { addTodo, addUser };

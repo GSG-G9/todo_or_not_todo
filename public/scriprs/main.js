@@ -25,6 +25,53 @@ const fakeData = [
   },
 ];
 
+const refreshTodo = () => {
+  fetch('/todos')
+    .then((res) => res.json())
+    .then((data) => {
+      renderTodoList(data);
+    })
+    .catch((err) => console.log(err));
+};
+
+const addNewTask = (todoText) => {
+  fetch('/todos', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ todoText }),
+  })
+    .then((res) => {
+      console.log(res);
+      return res.json();
+    })
+    .then(() => refreshTodo())
+    .catch((err) => console.log(err));
+};
+
+const deleteTask = (todoId) => {
+  fetch(`/todos/${todoId}`, {
+    method: 'DELETE',
+  })
+    .then((res) => res.text())
+    .then(() => refreshTodo())
+    .catch((err) => console.log(err));
+};
+
+const updateTodo = (todoId, todoContent) => {
+  fetch(`/todos/${todoId}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ todoContent }),
+  })
+    .then((res) => res.text())
+    .then(() => refreshTodo())
+    .catch((err) => console.log(err));
+};
+
 const renderTodoItem = (todo) => {
   const taskItem = document.createElement('div');
   taskItem.setAttribute('class', 'task-item');
@@ -36,9 +83,11 @@ const renderTodoItem = (todo) => {
   const checkInput = document.createElement('input');
   checkInput.setAttribute('type', 'checkbox');
   checkInput.setAttribute('name', 'check-complete');
-  todo.completed
-    ? checkInput.setAttribute('checked', 'true')
-    : checkInput.removeAttribute('checked');
+  if (todo.completed) {
+    checkInput.setAttribute('checked', 'true');
+  } else {
+    checkInput.removeAttribute('checked');
+  }
 
   const taskInput = document.createElement('input');
   taskInput.setAttribute('type', 'text');
@@ -49,10 +98,34 @@ const renderTodoItem = (todo) => {
   const editTask = document.createElement('span');
   editTask.setAttribute('class', 'edit-task');
 
+  if (todo.completed) {
+    editTask.classList.add('hidden');
+  }
+
+  checkInput.addEventListener('change', () => {
+    if (checkInput.checked === true) {
+      taskInput.classList.add('line-through');
+      editTask.classList.add('hidden');
+    } else if (checkInput.checked !== true) {
+      editTask.classList.remove('hidden');
+      taskInput.classList.remove('line-through');
+    }
+  });
+
   const editIcon = document.createElement('i');
   editIcon.setAttribute('class', 'fas fa-edit');
 
+  const deleteTaskEL = document.createElement('span');
+  deleteTaskEL.setAttribute('class', 'edit-task remove-task');
+  const deleteIcon = document.createElement('i');
+  deleteIcon.setAttribute('class', 'fas fa-times');
+
+  deleteTaskEL.append(deleteIcon);
   editTask.append(editIcon);
+
+  deleteTaskEL.addEventListener('click', () => {
+    deleteTask(todo.id);
+  });
 
   const saveChangeElement = document.createElement('span');
   saveChangeElement.setAttribute('class', 'edit-task hidden');
@@ -60,16 +133,25 @@ const renderTodoItem = (todo) => {
   saveIcon.setAttribute('class', 'fas fa-check');
   saveChangeElement.append(saveIcon);
 
-  editIcon.addEventListener('click', (e) => {
+  editIcon.addEventListener('click', () => {
     taskInput.readOnly = false;
     taskInput.focus();
     taskInput.classList.add('edit-case');
     saveChangeElement.classList.remove('hidden');
     saveChangeElement.classList.add('block');
     editTask.classList.add('hidden');
+    if (todo.completed) {
+      taskInput.classList.add('line-through');
+    } else {
+      taskInput.classList.remove('line-through');
+    }
   });
 
-  saveChangeElement.addEventListener('click', (e) => {
+  saveIcon.addEventListener('click', () => {
+    updateTodo(todo.id, taskInput.value);
+  });
+
+  saveChangeElement.addEventListener('click', () => {
     taskInput.readOnly = true;
     taskInput.classList.remove('edit-case');
     saveChangeElement.classList.add('hidden');
@@ -77,19 +159,17 @@ const renderTodoItem = (todo) => {
     editTask.classList.remove('hidden');
   });
 
-  if (checkInput.hasAttribute('checked')) {
-    taskInput.classList.add('line-through');
-  }
-
-  checkInput.addEventListener('change', () => {
-    taskInput.classList.toggle('line-through');
-  });
-
   const createdatTask = document.createElement('div');
   createdatTask.setAttribute('class', 'createdat');
   createdatTask.textContent = todo.createdAt;
 
-  taskContent.append(checkInput, taskInput, editTask, saveChangeElement);
+  taskContent.append(
+    checkInput,
+    taskInput,
+    editTask,
+    deleteTaskEL,
+    saveChangeElement,
+  );
   taskItem.append(taskContent, createdatTask);
 
   return taskItem;
@@ -101,33 +181,18 @@ const renderTodoList = (todos) => {
   }
   todos.forEach((todo) => {
     const todoItem = renderTodoItem(todo);
-    console.log(todoItem);
     todoList.append(todoItem);
   });
 };
 
-renderTodoList(fakeData);
+// renderTodoList(fakeData);
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   fetch('/todos').then((res) => res.json()).then((data) => {
-//     renderTodoList(data);
-//   }).catch((err) => console.log(err));
-// });
+document.addEventListener('DOMContentLoaded', () => {
+  addTodo.addEventListener('click', () => {
+    const textTodo = document.querySelector('.new-todo-text');
+    addNewTask(textTodo.value);
+    refreshTodo();
+  });
 
-const addNewTask = (todoText) => {
-  fetch('/todos', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ todoText }),
-  })
-    .then((res) => res.json())
-    .catch((err) => console.log(err));
-};
-
-addTodo.addEventListener('click', () => {
-  const textTodo = document.querySelector('.new-todo-text');
-  console.log(textTodo.value);
-  addNewTask(textTodo.value);
+  refreshTodo();
 });
